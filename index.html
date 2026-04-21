@@ -3,69 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Boda Diana &amp; Iván · 31 de Mayo</title>
+<title>Boda Diana &amp; Iván · 31 de Mayo 2026</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap');
+
+:root {
+  --bg:        #fdf6f0;
+  --bg2:       #faeee4;
+  --accent:    #e8956d;
+  --accent2:   #d4a57a;
+  --gold:      #c8955a;
+  --text:      #4a3728;
+  --text-soft: #9a7a68;
+  --text-mute: #c4a898;
+  --card-bg:   rgba(255,255,255,0.72);
+  --border:    rgba(200,149,90,0.28);
+}
+
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:#1a1612;font-family:'Montserrat',sans-serif;color:#f0ebe0;min-height:100vh;overflow-x:hidden;}
-.page{max-width:420px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;align-items:center;position:relative;padding-bottom:60px;}
-.particles{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:hidden;z-index:0;}
-.particle{position:absolute;border-radius:50%;background:#c4a97a;opacity:0;animation:float linear infinite;}
-@keyframes float{0%{transform:translateY(100vh);opacity:0;}10%{opacity:0.6;}90%{opacity:0.3;}100%{transform:translateY(-20px) translateX(20px);opacity:0;}}
-.hero{width:100%;text-align:center;padding:60px 32px 40px;position:relative;z-index:1;animation:fadeDown 1.2s ease both;}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-.pre{font-size:9px;letter-spacing:5px;color:#8a7a5a;text-transform:uppercase;margin-bottom:24px;}
-.names{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:58px;line-height:1.05;color:#f0ebe0;letter-spacing:2px;}
-.names .amp{display:block;font-style:italic;font-size:36px;color:#c4a97a;letter-spacing:4px;margin:4px 0;}
-.gold-line{width:1px;height:60px;background:linear-gradient(to bottom,transparent,#c4a97a,transparent);margin:28px auto;}
-.tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#a09070;letter-spacing:1px;line-height:1.8;}
-.countdown-wrap{width:calc(100% - 48px);background:rgba(196,169,122,0.08);border:0.5px solid rgba(196,169,122,0.25);border-radius:4px;padding:24px 20px;margin:0 24px 24px;text-align:center;position:relative;z-index:1;animation:fadeUp 1.4s ease both;}
-.countdown-label{font-size:9px;letter-spacing:4px;color:#8a7a5a;text-transform:uppercase;margin-bottom:16px;}
-.countdown-digits{display:flex;justify-content:center;gap:16px;}
-.cd-block{display:flex;flex-direction:column;align-items:center;}
-.cd-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#c4a97a;line-height:1;}
-.cd-unit{font-size:8px;letter-spacing:2px;color:#6a5a3a;text-transform:uppercase;margin-top:4px;}
-.cd-sep{font-family:'Cormorant Garamond',serif;font-size:32px;color:#4a3a2a;line-height:1.2;align-self:flex-start;margin-top:4px;}
-.details{width:calc(100% - 48px);margin:0 24px;display:flex;flex-direction:column;gap:16px;position:relative;z-index:1;animation:fadeUp 1.6s ease both;}
-.detail-card{background:rgba(255,255,255,0.03);border:0.5px solid rgba(196,169,122,0.2);border-radius:4px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;}
-.detail-icon{width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;opacity:0.7;}
-.detail-icon svg{stroke:#c4a97a;fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;}
-.detail-tag{font-size:8px;letter-spacing:3px;color:#6a5a3a;text-transform:uppercase;margin-bottom:4px;}
-.detail-main{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#f0ebe0;letter-spacing:0.5px;}
-.detail-sub{font-size:11px;color:#8a7a5a;margin-top:2px;letter-spacing:0.5px;}
-.map-section{width:calc(100% - 48px);margin:24px 24px 0;position:relative;z-index:1;animation:fadeUp 1.7s ease both;}
-.map-label{font-size:9px;letter-spacing:4px;color:#8a7a5a;text-transform:uppercase;margin-bottom:12px;text-align:center;}
-.map-frame{width:100%;height:220px;border-radius:4px;border:0.5px solid rgba(196,169,122,0.25);overflow:hidden;}
+
+body{
+  background: var(--bg);
+  font-family:'Jost',sans-serif;
+  color: var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── Fondo decorativo ── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 10%, rgba(232,149,109,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 85% 85%, rgba(212,165,122,0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(250,238,228,0.5) 0%, transparent 80%);
+  pointer-events:none;z-index:0;
+}
+
+.page{
+  max-width:440px;margin:0 auto;
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;
+  position:relative;z-index:1;
+  padding-bottom:70px;
+}
+
+/* ── Partículas ── */
+.particles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+.particle{
+  position:absolute;border-radius:50%;
+  background:var(--accent);opacity:0;
+  animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+  0%{transform:translateY(100vh) scale(0);opacity:0;}
+  10%{opacity:.45;}
+  90%{opacity:.15;}
+  100%{transform:translateY(-40px) translateX(15px) scale(1.2);opacity:0;}
+}
+
+/* ── Floral SVG top ── */
+.floral-top{
+  width:100%;display:flex;justify-content:center;
+  padding-top:36px;
+  animation:fadeDown 1.2s ease both;
+}
+
+/* ── Hero ── */
+.hero{
+  width:100%;text-align:center;
+  padding:20px 32px 32px;
+  animation:fadeDown 1.2s ease both;
+}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+.pre{
+  font-size:9px;letter-spacing:6px;
+  color:var(--text-soft);text-transform:uppercase;
+  margin-bottom:20px;font-weight:400;
+}
+.names{
+  font-family:'Playfair Display',serif;
+  font-weight:300;font-size:62px;line-height:1.05;
+  color:var(--text);letter-spacing:1px;
+}
+.names .amp{
+  display:block;font-style:italic;
+  font-size:38px;color:var(--accent);
+  letter-spacing:3px;margin:6px 0;
+}
+.divider{
+  display:flex;align-items:center;gap:14px;
+  margin:24px auto;width:80%;
+}
+.divider-line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);}
+.divider-diamond{
+  width:8px;height:8px;
+  background:var(--accent2);
+  transform:rotate(45deg);
+  flex-shrink:0;
+}
+.tagline{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:15px;
+  color:var(--text-soft);letter-spacing:.5px;line-height:1.9;
+}
+
+/* ── Countdown ── */
+.countdown-wrap{
+  width:calc(100% - 48px);
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:26px 20px;
+  margin:0 24px 20px;
+  text-align:center;
+  backdrop-filter:blur(8px);
+  box-shadow:0 4px 24px rgba(200,149,90,0.08);
+  animation:fadeUp 1.4s ease both;
+}
+.countdown-label{
+  font-size:9px;letter-spacing:4px;
+  color:var(--text-mute);text-transform:uppercase;margin-bottom:18px;
+}
+.countdown-digits{display:flex;justify-content:center;gap:10px;}
+.cd-block{display:flex;flex-direction:column;align-items:center;min-width:54px;}
+.cd-num{
+  font-family:'Playfair Display',serif;
+  font-size:42px;font-weight:300;
+  color:var(--accent);line-height:1;
+}
+.cd-unit{font-size:8px;letter-spacing:2px;color:var(--text-mute);text-transform:uppercase;margin-top:5px;}
+.cd-sep{
+  font-family:'Playfair Display',serif;
+  font-size:30px;color:var(--border);
+  line-height:1.1;align-self:flex-start;margin-top:6px;
+}
+
+/* ── Detail cards ── */
+.details{
+  width:calc(100% - 48px);margin:0 24px;
+  display:flex;flex-direction:column;gap:14px;
+  animation:fadeUp 1.6s ease both;
+}
+.detail-card{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:14px;padding:18px 22px;
+  display:flex;align-items:flex-start;gap:16px;
+  backdrop-filter:blur(6px);
+  box-shadow:0 2px 16px rgba(200,149,90,0.06);
+  transition:transform .2s,box-shadow .2s;
+}
+.detail-card:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(200,149,90,0.12);}
+.detail-icon{
+  width:34px;height:34px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(232,149,109,0.12);
+  border-radius:10px;
+}
+.detail-icon svg{stroke:var(--accent);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;}
+.detail-tag{font-size:8px;letter-spacing:3px;color:var(--text-mute);text-transform:uppercase;margin-bottom:4px;}
+.detail-main{font-family:'Playfair Display',serif;font-size:20px;font-weight:300;color:var(--text);letter-spacing:.3px;}
+.detail-sub{font-size:11px;color:var(--text-soft);margin-top:3px;letter-spacing:.3px;}
+
+/* ── Mapa ── */
+.map-section{
+  width:calc(100% - 48px);margin:20px 24px 0;
+  animation:fadeUp 1.7s ease both;
+}
+.map-label{font-size:9px;letter-spacing:4px;color:var(--text-mute);text-transform:uppercase;margin-bottom:12px;text-align:center;}
+.map-frame{
+  width:100%;height:220px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  overflow:hidden;
+  box-shadow:0 2px 16px rgba(200,149,90,0.08);
+}
 .map-frame iframe{width:100%;height:100%;border:none;}
-.map-btn{display:block;width:100%;margin-top:10px;padding:12px;background:transparent;border:0.5px solid rgba(196,169,122,0.3);border-radius:3px;color:#c4a97a;font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;text-align:center;cursor:pointer;text-decoration:none;transition:all 0.3s;}
-.map-btn:hover{background:rgba(196,169,122,0.1);}
-.music-section{width:calc(100% - 48px);margin:24px 24px 0;position:relative;z-index:1;animation:fadeUp 1.8s ease both;}
-.music-card{background:rgba(196,169,122,0.06);border:0.5px solid rgba(196,169,122,0.2);border-radius:4px;padding:20px 24px;display:flex;align-items:center;gap:16px;}
-.music-art{width:48px;height:48px;border-radius:3px;background:#2a2018;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.music-info{flex:1;}
-.music-tag{font-size:8px;letter-spacing:3px;color:#6a5a3a;text-transform:uppercase;margin-bottom:4px;}
-.music-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:#f0ebe0;}
-.music-artist{font-size:11px;color:#8a7a5a;margin-top:1px;}
-.play-btn{width:40px;height:40px;border-radius:50%;background:rgba(196,169,122,0.15);border:0.5px solid rgba(196,169,122,0.4);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;flex-shrink:0;}
-.play-btn:hover{background:rgba(196,169,122,0.25);}
-.progress-bar{width:100%;height:2px;background:rgba(196,169,122,0.15);border-radius:1px;margin-top:12px;overflow:hidden;}
-.progress-fill{height:100%;background:#c4a97a;width:0%;transition:width 0.5s linear;border-radius:1px;}
-.music-time{display:flex;justify-content:space-between;margin-top:6px;font-size:9px;color:#4a3a2a;letter-spacing:1px;}
-.rsvp-section{width:calc(100% - 48px);margin:24px 24px 0;text-align:center;position:relative;z-index:1;animation:fadeUp 1.9s ease both;}
-.rsvp-title{font-size:9px;letter-spacing:4px;color:#8a7a5a;text-transform:uppercase;margin-bottom:16px;}
+.map-btn{
+  display:block;width:100%;margin-top:10px;padding:13px;
+  background:var(--accent);
+  border-radius:10px;
+  color:#fff;
+  font-family:'Jost',sans-serif;font-size:10px;
+  letter-spacing:2px;text-transform:uppercase;
+  text-align:center;cursor:pointer;text-decoration:none;
+  font-weight:500;
+  transition:all .3s;
+  box-shadow:0 4px 16px rgba(232,149,109,0.3);
+}
+.map-btn:hover{background:#d4825a;box-shadow:0 6px 20px rgba(232,149,109,0.4);}
+
+/* ── Música ── */
+.music-section{
+  width:calc(100% - 48px);margin:20px 24px 0;
+  animation:fadeUp 1.8s ease both;
+}
+.music-label{font-size:9px;letter-spacing:4px;color:var(--text-mute);text-transform:uppercase;margin-bottom:12px;text-align:center;}
+.spotify-wrap{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 2px 16px rgba(200,149,90,0.08);
+}
+.spotify-wrap iframe{display:block;width:100%;border:none;}
+
+/* ── RSVP ── */
+.rsvp-section{
+  width:calc(100% - 48px);margin:20px 24px 0;
+  text-align:center;
+  animation:fadeUp 1.9s ease both;
+}
+.rsvp-title{font-size:9px;letter-spacing:4px;color:var(--text-mute);text-transform:uppercase;margin-bottom:6px;}
+.rsvp-sub{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:17px;
+  color:var(--text-soft);margin-bottom:20px;
+}
 .rsvp-btns{display:flex;gap:12px;}
-.btn{flex:1;padding:14px 0;border-radius:3px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all 0.3s ease;border:none;}
-.btn-yes{background:#c4a97a;color:#1a1612;font-weight:500;}
-.btn-yes:hover{background:#d4b98a;}
-.btn-yes.selected{box-shadow:0 0 20px rgba(196,169,122,0.4);}
-.btn-no{background:transparent;color:#8a7a5a;border:0.5px solid rgba(196,169,122,0.3)!important;}
-.btn-no:hover{color:#c4a97a;}
-.confirm-msg{margin-top:16px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#c4a97a;opacity:0;transition:opacity 0.5s;min-height:24px;}
+.btn{
+  flex:1;padding:15px 0;
+  border-radius:12px;
+  font-family:'Jost',sans-serif;font-size:10px;
+  letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;transition:all .3s;border:none;
+  font-weight:500;
+}
+.btn-yes{
+  background:var(--accent);color:#fff;
+  box-shadow:0 4px 16px rgba(232,149,109,0.3);
+  text-decoration:none;display:flex;align-items:center;justify-content:center;
+}
+.btn-yes:hover{background:#d4825a;transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,149,109,0.4);}
+.btn-no{
+  background:transparent;color:var(--text-soft);
+  border:1px solid var(--border)!important;
+}
+.btn-no:hover{color:var(--accent);border-color:var(--accent)!important;}
+.confirm-msg{
+  margin-top:16px;
+  font-family:'Playfair Display',serif;font-style:italic;font-size:15px;
+  color:var(--accent);opacity:0;transition:opacity .5s;min-height:24px;
+}
 .confirm-msg.show{opacity:1;}
-.closing{margin-top:48px;text-align:center;position:relative;z-index:1;}
-.closing-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:#4a3a2a;letter-spacing:2px;}
-.floral-top{width:100%;display:flex;justify-content:center;padding-top:32px;position:relative;z-index:1;}
+
+/* ── Closing ── */
+.closing{margin-top:52px;text-align:center;}
+.closing-text{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:13px;
+  color:var(--text-mute);letter-spacing:2px;
+}
+.closing-hearts{font-size:18px;margin-top:8px;color:var(--accent);opacity:.6;}
 </style>
 </head>
 <body>
@@ -74,18 +266,25 @@ body{background:#1a1612;font-family:'Montserrat',sans-serif;color:#f0ebe0;min-he
 
 <div class="page">
 
+  <!-- Floral decorativo -->
   <div class="floral-top">
-    <svg width="180" height="50" viewBox="0 0 180 50" fill="none">
-      <path d="M90 45 Q70 30 50 35 Q30 40 20 25 Q10 10 30 8 Q50 6 60 18 Q70 30 90 20" stroke="#c4a97a" stroke-width="0.7" fill="none" opacity="0.6"/>
-      <path d="M90 45 Q110 30 130 35 Q150 40 160 25 Q170 10 150 8 Q130 6 120 18 Q110 30 90 20" stroke="#c4a97a" stroke-width="0.7" fill="none" opacity="0.6"/>
-      <circle cx="90" cy="12" r="4" fill="#c4a97a" opacity="0.5"/>
-      <circle cx="60" cy="8" r="2.5" fill="#c4a97a" opacity="0.4"/>
-      <circle cx="120" cy="8" r="2.5" fill="#c4a97a" opacity="0.4"/>
-      <circle cx="35" cy="18" r="2" fill="#c4a97a" opacity="0.3"/>
-      <circle cx="145" cy="18" r="2" fill="#c4a97a" opacity="0.3"/>
+    <svg width="200" height="60" viewBox="0 0 200 60" fill="none">
+      <path d="M100 52 Q78 36 55 42 Q32 48 20 32 Q8 16 30 13 Q52 10 64 24 Q76 38 100 28" stroke="#e8956d" stroke-width="0.8" fill="none" opacity="0.55"/>
+      <path d="M100 52 Q122 36 145 42 Q168 48 180 32 Q192 16 170 13 Q148 10 136 24 Q124 38 100 28" stroke="#e8956d" stroke-width="0.8" fill="none" opacity="0.55"/>
+      <!-- flores pequeñas -->
+      <circle cx="100" cy="14" r="4.5" fill="#e8956d" opacity="0.45"/>
+      <circle cx="100" cy="14" r="2" fill="#fdf6f0" opacity="0.8"/>
+      <circle cx="66" cy="10" r="3" fill="#d4a57a" opacity="0.4"/>
+      <circle cx="134" cy="10" r="3" fill="#d4a57a" opacity="0.4"/>
+      <circle cx="36" cy="22" r="2.2" fill="#e8956d" opacity="0.3"/>
+      <circle cx="164" cy="22" r="2.2" fill="#e8956d" opacity="0.3"/>
+      <!-- hojitas -->
+      <ellipse cx="88" cy="20" rx="5" ry="2.5" fill="#c8a07a" opacity="0.25" transform="rotate(-30 88 20)"/>
+      <ellipse cx="112" cy="20" rx="5" ry="2.5" fill="#c8a07a" opacity="0.25" transform="rotate(30 112 20)"/>
     </svg>
   </div>
 
+  <!-- Hero -->
   <div class="hero">
     <p class="pre">nos casamos</p>
     <div class="names">
@@ -93,37 +292,43 @@ body{background:#1a1612;font-family:'Montserrat',sans-serif;color:#f0ebe0;min-he
       <span class="amp">&amp;</span>
       Iván
     </div>
-    <div class="gold-line"></div>
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line"></div>
+    </div>
     <p class="tagline">Con toda la alegría de nuestro corazón,<br>los invitamos a ser parte de este momento</p>
   </div>
 
+  <!-- Countdown -->
   <div class="countdown-wrap">
-    <p class="countdown-label">Cuenta regresiva</p>
+    <p class="countdown-label">Faltan</p>
     <div class="countdown-digits">
       <div class="cd-block"><span class="cd-num" id="days">--</span><span class="cd-unit">días</span></div>
-      <span class="cd-sep">:</span>
+      <span class="cd-sep">·</span>
       <div class="cd-block"><span class="cd-num" id="hrs">--</span><span class="cd-unit">horas</span></div>
-      <span class="cd-sep">:</span>
+      <span class="cd-sep">·</span>
       <div class="cd-block"><span class="cd-num" id="mins">--</span><span class="cd-unit">min</span></div>
-      <span class="cd-sep">:</span>
+      <span class="cd-sep">·</span>
       <div class="cd-block"><span class="cd-num" id="secs">--</span><span class="cd-unit">seg</span></div>
     </div>
   </div>
 
+  <!-- Detalles -->
   <div class="details">
     <div class="detail-card">
       <div class="detail-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       </div>
       <div class="detail-text">
         <div class="detail-tag">Fecha y hora</div>
         <div class="detail-main">31 de Mayo · 3:00 pm</div>
-        <div class="detail-sub">Sábado</div>
+        <div class="detail-sub">Sábado 2026</div>
       </div>
     </div>
     <div class="detail-card">
       <div class="detail-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
       </div>
       <div class="detail-text">
         <div class="detail-tag">Lugar</div>
@@ -133,7 +338,7 @@ body{background:#1a1612;font-family:'Montserrat',sans-serif;color:#f0ebe0;min-he
     </div>
     <div class="detail-card">
       <div class="detail-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
       </div>
       <div class="detail-text">
         <div class="detail-tag">Dress code</div>
@@ -143,6 +348,7 @@ body{background:#1a1612;font-family:'Montserrat',sans-serif;color:#f0ebe0;min-he
     </div>
   </div>
 
+  <!-- Mapa -->
   <div class="map-section">
     <p class="map-label">Cómo llegar</p>
     <div class="map-frame">
@@ -154,108 +360,95 @@ body{background:#1a1612;font-family:'Montserrat',sans-serif;color:#f0ebe0;min-he
     <a class="map-btn" href="https://maps.app.goo.gl/vekN56jAHfiuUjT27" target="_blank">Abrir en Google Maps →</a>
   </div>
 
+  <!-- Música Spotify -->
   <div class="music-section">
-    <div class="music-card">
-      <div class="music-art">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4a97a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
-        </svg>
-      </div>
-      <div class="music-info">
-        <div class="music-tag">Nuestra canción</div>
-        <div class="music-title">Perfect</div>
-        <div class="music-artist">Ed Sheeran</div>
-        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-        <div class="music-time"><span id="curTime">0:00</span><span>4:23</span></div>
-      </div>
-      <div class="play-btn" id="playBtn" onclick="togglePlay()">
-        <svg id="playIcon" width="16" height="16" viewBox="0 0 24 24">
-          <polygon points="5,3 19,12 5,21" fill="#c4a97a" stroke="none"/>
-        </svg>
-      </div>
+    <p class="music-label">Nuestra canción</p>
+    <div class="spotify-wrap">
+      <iframe
+        src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v?utm_source=generator&theme=0"
+        width="100%" height="152"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
     </div>
   </div>
 
+  <!-- RSVP -->
   <div class="rsvp-section">
-    <p class="rsvp-title">¿Nos acompañas?</p>
+    <p class="rsvp-title">Confirmación de asistencia</p>
+    <p class="rsvp-sub">¿Nos acompañas?</p>
     <div class="rsvp-btns">
-      <button class="btn btn-yes" id="btnYes" onclick="rsvp('yes')">Sí, ahí estaré</button>
-      <button class="btn btn-no" id="btnNo" onclick="rsvp('no')">No podré ir</button>
+      <a class="btn btn-yes" id="btnYes" href="#" onclick="rsvpYes(event)">Sí, ahí estaré 🥂</a>
+      <button class="btn btn-no" id="btnNo" onclick="rsvpNo()">No podré ir</button>
     </div>
     <div class="confirm-msg" id="confirmMsg"></div>
   </div>
 
+  <!-- Cierre -->
   <div class="closing">
+    <div class="divider" style="width:60%;margin:0 auto 16px;">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line"></div>
+    </div>
     <p class="closing-text">con amor · Diana &amp; Iván</p>
+    <p class="closing-hearts">♡</p>
   </div>
 
 </div>
 
 <script>
-// Particles
-const container=document.getElementById('particles');
-for(let i=0;i<25;i++){
-  const p=document.createElement('div');
-  p.className='particle';
-  p.style.left=Math.random()*100+'%';
-  p.style.animationDuration=(8+Math.random()*12)+'s';
-  p.style.animationDelay=(Math.random()*10)+'s';
-  p.style.width=p.style.height=(1+Math.random()*2)+'px';
+// Partículas
+const container = document.getElementById('particles');
+for(let i = 0; i < 22; i++){
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.animationDuration = (10 + Math.random() * 14) + 's';
+  p.style.animationDelay = (Math.random() * 12) + 's';
+  const size = (1.5 + Math.random() * 2.5) + 'px';
+  p.style.width = size; p.style.height = size;
+  p.style.opacity = Math.random() * 0.4;
   container.appendChild(p);
 }
 
-// Countdown
+// Cuenta regresiva — 31 mayo 2026 3:00 pm hora México (UTC-6)
 function updateCountdown(){
-  const target=new Date('2025-05-31T15:00:00');
-  const now=new Date();
-  const diff=target-now;
-  if(diff<=0){['days','hrs','mins','secs'].forEach(id=>document.getElementById(id).textContent='00');return;}
-  const d=Math.floor(diff/86400000);
-  const h=Math.floor((diff%86400000)/3600000);
-  const m=Math.floor((diff%3600000)/60000);
-  const s=Math.floor((diff%60000)/1000);
-  document.getElementById('days').textContent=String(d).padStart(2,'0');
-  document.getElementById('hrs').textContent=String(h).padStart(2,'0');
-  document.getElementById('mins').textContent=String(m).padStart(2,'0');
-  document.getElementById('secs').textContent=String(s).padStart(2,'0');
+  const target = new Date('2026-05-31T15:00:00-06:00');
+  const now = new Date();
+  const diff = target - now;
+  if(diff <= 0){
+    ['days','hrs','mins','secs'].forEach(id => document.getElementById(id).textContent = '00');
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('days').textContent = String(d).padStart(2,'0');
+  document.getElementById('hrs').textContent  = String(h).padStart(2,'0');
+  document.getElementById('mins').textContent = String(m).padStart(2,'0');
+  document.getElementById('secs').textContent = String(s).padStart(2,'0');
 }
 updateCountdown();
-setInterval(updateCountdown,1000);
+setInterval(updateCountdown, 1000);
 
-// Music player
-let playing=false,elapsed=0,interval=null;
-const totalSecs=263;
-function togglePlay(){
-  playing=!playing;
-  const icon=document.getElementById('playIcon');
-  if(playing){
-    icon.innerHTML='<rect x="6" y="4" width="4" height="16" fill="#c4a97a"/><rect x="14" y="4" width="4" height="16" fill="#c4a97a"/>';
-    interval=setInterval(()=>{
-      elapsed=Math.min(elapsed+1,totalSecs);
-      document.getElementById('progressFill').style.width=((elapsed/totalSecs)*100)+'%';
-      const m=Math.floor(elapsed/60),s=elapsed%60;
-      document.getElementById('curTime').textContent=m+':'+(s<10?'0':'')+s;
-      if(elapsed>=totalSecs){clearInterval(interval);playing=false;icon.innerHTML='<polygon points="5,3 19,12 5,21" fill="#c4a97a" stroke="none"/>';}
-    },1000);
-  } else {
-    clearInterval(interval);
-    icon.innerHTML='<polygon points="5,3 19,12 5,21" fill="#c4a97a" stroke="none"/>';
-  }
+// RSVP → WhatsApp
+function rsvpYes(e){
+  e.preventDefault();
+  const msg = encodeURIComponent('¡Hola! Confirmo mi asistencia a la boda de Diana & Iván el 31 de mayo 2026 🥂');
+  window.open('https://wa.me/527714031344?text=' + msg, '_blank');
+  const confirmEl = document.getElementById('confirmMsg');
+  confirmEl.textContent = '¡Qué alegría! Abriendo WhatsApp para confirmar 🎉';
+  confirmEl.classList.add('show');
 }
 
-// RSVP
-function rsvp(choice){
-  const msg=document.getElementById('confirmMsg');
-  document.getElementById('btnYes').classList.remove('selected');
-  document.getElementById('btnNo').classList.remove('selected');
-  if(choice==='yes'){
-    document.getElementById('btnYes').classList.add('selected');
-    msg.textContent='¡Qué alegría! Te esperamos con los brazos abiertos 🥂';
-  } else {
-    document.getElementById('btnNo').classList.add('selected');
-    msg.textContent='Gracias por avisarnos, los recordaremos con cariño.';
-  }
-  msg.classList.add('show');
+function rsvpNo(){
+  const msg = encodeURIComponent('Hola, lamentablemente no podré acompañarlos en su boda el 31 de mayo 2026. Los felicito con mucho cariño 💐');
+  window.open('https://wa.me/527714031344?text=' + msg, '_blank');
+  const confirmEl = document.getElementById('confirmMsg');
+  confirmEl.textContent = 'Gracias por avisar, los recordaremos con cariño.';
+  confirmEl.classList.add('show');
 }
 </script>
 </body>
