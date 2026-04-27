@@ -8,8 +8,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap');
 
 :root {
-  --bg:        #fdf6f0;
-  --bg2:       #faeee4;
+  --bg:        #fffbf8;
+  --bg2:       #fdf6f0;
   --accent:    #e8956d;
   --accent2:   #d4a57a;
   --gold:      #c8955a;
@@ -250,6 +250,52 @@ body::before{
 }
 .confirm-msg.show{opacity:1;}
 
+/* ── Regalos ── */
+.gifts-section{
+  width:calc(100% - 48px);margin:20px 24px 0;
+  text-align:center;
+  animation:fadeUp 1.85s ease both;
+}
+.gifts-label{font-size:9px;letter-spacing:4px;color:var(--text-mute);text-transform:uppercase;margin-bottom:8px;}
+.gifts-intro{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:14px;
+  color:var(--text-soft);line-height:1.8;margin-bottom:18px;
+}
+.gift-card{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:14px;padding:20px 22px;
+  backdrop-filter:blur(6px);
+  box-shadow:0 2px 16px rgba(200,149,90,0.06);
+  display:flex;flex-direction:column;align-items:center;
+}
+.gift-tag{font-size:8px;letter-spacing:3px;color:var(--text-mute);text-transform:uppercase;margin-bottom:6px;}
+.gift-main{font-family:'Playfair Display',serif;font-size:17px;font-weight:300;color:var(--text);margin-bottom:4px;}
+.gift-num{
+  font-family:'Playfair Display',serif;
+  font-size:32px;font-weight:300;
+  color:var(--accent);letter-spacing:4px;margin:6px 0 14px;
+}
+.gift-btn{
+  display:inline-block;padding:11px 24px;
+  background:var(--accent);
+  border-radius:10px;color:#fff;
+  font-family:'Jost',sans-serif;font-size:10px;
+  letter-spacing:2px;text-transform:uppercase;
+  text-decoration:none;font-weight:500;
+  transition:all .3s;
+  box-shadow:0 4px 16px rgba(232,149,109,0.3);
+}
+.gift-btn:hover{background:#d4825a;box-shadow:0 6px 20px rgba(232,149,109,0.4);}
+
+.gifts-closing{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:14px;
+  color:var(--text-soft);line-height:1.9;
+  margin-top:16px;
+}
+
 /* ── Closing ── */
 .closing{margin-top:52px;text-align:center;}
 .closing-text{
@@ -271,14 +317,12 @@ body::before{
     <svg width="200" height="60" viewBox="0 0 200 60" fill="none">
       <path d="M100 52 Q78 36 55 42 Q32 48 20 32 Q8 16 30 13 Q52 10 64 24 Q76 38 100 28" stroke="#e8956d" stroke-width="0.8" fill="none" opacity="0.55"/>
       <path d="M100 52 Q122 36 145 42 Q168 48 180 32 Q192 16 170 13 Q148 10 136 24 Q124 38 100 28" stroke="#e8956d" stroke-width="0.8" fill="none" opacity="0.55"/>
-      <!-- flores pequeñas -->
       <circle cx="100" cy="14" r="4.5" fill="#e8956d" opacity="0.45"/>
       <circle cx="100" cy="14" r="2" fill="#fdf6f0" opacity="0.8"/>
       <circle cx="66" cy="10" r="3" fill="#d4a57a" opacity="0.4"/>
       <circle cx="134" cy="10" r="3" fill="#d4a57a" opacity="0.4"/>
       <circle cx="36" cy="22" r="2.2" fill="#e8956d" opacity="0.3"/>
       <circle cx="164" cy="22" r="2.2" fill="#e8956d" opacity="0.3"/>
-      <!-- hojitas -->
       <ellipse cx="88" cy="20" rx="5" ry="2.5" fill="#c8a07a" opacity="0.25" transform="rotate(-30 88 20)"/>
       <ellipse cx="112" cy="20" rx="5" ry="2.5" fill="#c8a07a" opacity="0.25" transform="rotate(30 112 20)"/>
     </svg>
@@ -333,7 +377,6 @@ body::before{
       <div class="detail-text">
         <div class="detail-tag">Lugar</div>
         <div class="detail-main">Rancho Velillo</div>
-        <div class="detail-sub">Salón de Eventos Villa Ansole · Hidalgo, México</div>
       </div>
     </div>
     <div class="detail-card">
@@ -342,8 +385,7 @@ body::before{
       </div>
       <div class="detail-text">
         <div class="detail-tag">Dress code</div>
-        <div class="detail-main">Formal Elegante</div>
-        <div class="detail-sub">Colores claros bienvenidos</div>
+        <div class="detail-main">Formal</div>
       </div>
     </div>
   </div>
@@ -357,7 +399,7 @@ body::before{
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
-    <a class="map-btn" href="https://maps.app.goo.gl/vekN56jAHfiuUjT27" target="_blank">Abrir en Google Maps →</a>
+    <a class="map-btn" href="https://maps.app.goo.gl/Z6sNxRb19hNWJsr6A" target="_blank">Abrir en Google Maps →</a>
   </div>
 
   <!-- Música Spotify -->
@@ -371,6 +413,23 @@ body::before{
         loading="lazy">
       </iframe>
     </div>
+  </div>
+
+  <!-- Regalos -->
+  <div class="gifts-section">
+    <p class="gifts-label">Regalos</p>
+    <p class="gifts-intro">Tu presencia es nuestro mejor regalo; si deseas obsequiarnos algo, una lluvia de sobres será muy bienvenida.</p>
+
+    <div class="gift-card">
+      <div class="detail-icon" style="margin-bottom:10px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8956d" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+      </div>
+      <div class="gift-tag">Mesa de regalos · Liverpool</div>
+      <div class="gift-main">Número de evento</div>
+      <div class="gift-num">51997647</div>
+      <a class="gift-btn" href="https://www.liverpool.com.mx/tienda/mesaderegalos/search?eventNumber=51997647" target="_blank">Ver mesa de regalos →</a>
+    </div>
+
   </div>
 
   <!-- RSVP -->
