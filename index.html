@@ -63,23 +63,20 @@ body::before{
   100%{transform:translateY(-40px) translateX(15px) scale(1.2);opacity:0;}
 }
 
-/* ── Hero foto ── */
-.hero-photo{
+/* ── Hero elegante ── */
+.hero-banner{
   width:100%;
-  height:420px;
+  height:320px;
   position:relative;
   overflow:hidden;
+  background: linear-gradient(160deg, #fdf0e6 0%, #f5e0c8 40%, #eeddbf 100%);
+  display:flex;align-items:center;justify-content:center;
 }
-.hero-photo img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center top;
-  display:block;
-}
-.hero-photo-overlay{
+.hero-banner-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(to bottom, rgba(253,246,240,0) 0%, rgba(255,251,248,0.3) 60%, rgba(255,251,248,1) 100%);
+  background:linear-gradient(to bottom, rgba(255,251,248,0) 0%, rgba(255,251,248,0.2) 60%, rgba(255,251,248,1) 100%);
 }
+.hero-banner svg{position:absolute;inset:0;width:100%;height:100%;}
 
 /* ── Floral SVG top ── */
 .floral-top{
@@ -330,10 +327,51 @@ body::before{
 
 <div class="page">
 
-  <!-- Banner foto -->
-  <div class="hero-photo">
-    <img src="Gemini_Generated_Image_yhjv2lyhjv2lyhjv.png" alt="Diana e Iván">
-    <div class="hero-photo-overlay"></div>
+  <!-- Banner elegante -->
+  <div class="hero-banner">
+    <svg viewBox="0 0 440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Ramas y hojas de fondo -->
+      <path d="M0 280 Q60 220 120 240 Q180 260 220 200 Q260 140 320 160 Q380 180 440 140" stroke="#d4a57a" stroke-width="1.2" opacity="0.35" fill="none"/>
+      <path d="M0 300 Q80 260 160 270 Q240 280 300 240 Q360 200 440 210" stroke="#e8956d" stroke-width="0.8" opacity="0.25" fill="none"/>
+      <path d="M440 290 Q380 240 320 255 Q260 270 200 230 Q140 190 80 210 Q20 230 0 200" stroke="#d4a57a" stroke-width="1" opacity="0.3" fill="none"/>
+      <!-- Flores esquina inferior izquierda -->
+      <circle cx="40" cy="285" r="18" fill="#e8956d" opacity="0.15"/>
+      <circle cx="40" cy="285" r="10" fill="#e8956d" opacity="0.2"/>
+      <circle cx="40" cy="285" r="4" fill="#c8955a" opacity="0.5"/>
+      <circle cx="65" cy="300" r="12" fill="#d4a57a" opacity="0.18"/>
+      <circle cx="65" cy="300" r="6" fill="#d4a57a" opacity="0.28"/>
+      <circle cx="18" cy="310" r="10" fill="#e8956d" opacity="0.15"/>
+      <!-- Flores esquina inferior derecha -->
+      <circle cx="400" cy="285" r="18" fill="#e8956d" opacity="0.15"/>
+      <circle cx="400" cy="285" r="10" fill="#e8956d" opacity="0.2"/>
+      <circle cx="400" cy="285" r="4" fill="#c8955a" opacity="0.5"/>
+      <circle cx="375" cy="300" r="12" fill="#d4a57a" opacity="0.18"/>
+      <circle cx="375" cy="300" r="6" fill="#d4a57a" opacity="0.28"/>
+      <circle cx="422" cy="308" r="10" fill="#e8956d" opacity="0.15"/>
+      <!-- Flores esquina superior izquierda -->
+      <circle cx="30" cy="40" r="22" fill="#d4a57a" opacity="0.12"/>
+      <circle cx="30" cy="40" r="13" fill="#e8956d" opacity="0.18"/>
+      <circle cx="30" cy="40" r="5" fill="#c8955a" opacity="0.45"/>
+      <circle cx="60" cy="20" r="14" fill="#e8956d" opacity="0.13"/>
+      <circle cx="60" cy="20" r="7" fill="#d4a57a" opacity="0.22"/>
+      <!-- Flores esquina superior derecha -->
+      <circle cx="410" cy="40" r="22" fill="#d4a57a" opacity="0.12"/>
+      <circle cx="410" cy="40" r="13" fill="#e8956d" opacity="0.18"/>
+      <circle cx="410" cy="40" r="5" fill="#c8955a" opacity="0.45"/>
+      <circle cx="380" cy="20" r="14" fill="#e8956d" opacity="0.13"/>
+      <circle cx="380" cy="20" r="7" fill="#d4a57a" opacity="0.22"/>
+      <!-- Hojas decorativas -->
+      <ellipse cx="80" cy="260" rx="20" ry="8" fill="#c8a07a" opacity="0.2" transform="rotate(-35 80 260)"/>
+      <ellipse cx="360" cy="260" rx="20" ry="8" fill="#c8a07a" opacity="0.2" transform="rotate(35 360 260)"/>
+      <ellipse cx="50" cy="75" rx="18" ry="7" fill="#c8a07a" opacity="0.18" transform="rotate(20 50 75)"/>
+      <ellipse cx="390" cy="75" rx="18" ry="7" fill="#c8a07a" opacity="0.18" transform="rotate(-20 390 75)"/>
+      <!-- Flor central -->
+      <circle cx="220" cy="160" r="28" fill="#e8956d" opacity="0.1"/>
+      <circle cx="220" cy="160" r="16" fill="#e8956d" opacity="0.13"/>
+      <circle cx="220" cy="160" r="7" fill="#c8955a" opacity="0.35"/>
+      <circle cx="220" cy="160" r="3" fill="#c8955a" opacity="0.6"/>
+    </svg>
+    <div class="hero-banner-overlay"></div>
   </div>
 
   <!-- Floral decorativo -->
