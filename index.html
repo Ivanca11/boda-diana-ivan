@@ -247,8 +247,8 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
       </div>
       <div class="detail-text">
         <div class="detail-tag">Fecha y hora</div>
-        <div class="detail-main">31 de Mayo · 3:00 pm</div>
-        <div class="detail-sub">Sábado 2026</div>
+        <div class="detail-main">31 de Mayo · 1:00 pm</div>
+        <div class="detail-sub">Domingo 2026</div>
       </div>
     </div>
     <div class="detail-card">
@@ -333,7 +333,7 @@ for(let i=0;i<18;i++){
 }
 
 function updateCountdown(){
-  const target=new Date('2026-05-31T15:00:00-06:00');
+  const target=new Date('2026-05-31T13:00:00-06:00');
   const diff=target-new Date();
   if(diff<=0){['days','hrs','mins','secs'].forEach(id=>document.getElementById(id).textContent='00');return;}
   document.getElementById('days').textContent=String(Math.floor(diff/86400000)).padStart(2,'0');
