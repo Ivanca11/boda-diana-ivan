@@ -9,7 +9,6 @@
 
 :root {
   --bg:        #fdf8f3;
-  --bg2:       #f9f1e7;
   --accent:    #b07042;
   --accent2:   #c8955a;
   --gold:      #a0703a;
@@ -23,379 +22,108 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);font-family:'Jost',sans-serif;color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 10% 5%,rgba(200,149,90,0.10) 0%,transparent 60%),radial-gradient(ellipse 60% 60% at 90% 90%,rgba(201,123,106,0.09) 0%,transparent 60%);pointer-events:none;z-index:0;}
 
-body{
-  background: var(--bg);
-  font-family:'Jost',sans-serif;
-  color: var(--text);
-  min-height:100vh;
-  overflow-x:hidden;
-}
+.page{max-width:440px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1;padding-bottom:70px;}
 
-body::before{
-  content:'';
-  position:fixed;inset:0;
-  background:
-    radial-gradient(ellipse 70% 50% at 10% 5%,  rgba(200,149,90,0.10) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 60% at 90% 90%, rgba(201,123,106,0.09) 0%, transparent 60%);
-  pointer-events:none;z-index:0;
-}
+/* Monograma */
+.monogram-wrap{width:100%;display:flex;justify-content:center;align-items:center;padding:36px 0 8px;animation:fadeDown 1.1s ease both;}
 
-.page{
-  max-width:440px;margin:0 auto;
-  min-height:100vh;
-  display:flex;flex-direction:column;align-items:center;
-  position:relative;z-index:1;
-  padding-bottom:70px;
-}
-
-/* ── Monograma ── */
-.monogram-wrap{
-  width:100%;
-  display:flex;justify-content:center;align-items:center;
-  padding:36px 0 8px;
-  animation:fadeDown 1.1s ease both;
-}
-
-/* ── Partículas ── */
+/* Partículas */
 .particles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
-.particle{
-  position:absolute;border-radius:50%;
-  background:var(--rose);opacity:0;
-  animation:floatUp linear infinite;
-}
-@keyframes floatUp{
-  0%{transform:translateY(100vh) scale(0);opacity:0;}
-  10%{opacity:.35;}
-  90%{opacity:.12;}
-  100%{transform:translateY(-40px) translateX(12px) scale(1.2);opacity:0;}
-}
+.particle{position:absolute;border-radius:50%;background:var(--rose);opacity:0;animation:floatUp linear infinite;}
+@keyframes floatUp{0%{transform:translateY(100vh) scale(0);opacity:0;}10%{opacity:.35;}90%{opacity:.12;}100%{transform:translateY(-40px) translateX(12px) scale(1.2);opacity:0;}}
 
-/* ── Hero con foto real ── */
+/* Banner — sin foto, gradiente elegante */
 .hero-banner{
-  width:100%;
-  height:320px;
-  position:relative;
-  overflow:hidden;
-  background: linear-gradient(145deg, #e8d0a8 0%, #d4a87a 35%, #c09060 65%, #a87848 100%);
+  width:100%;height:300px;position:relative;overflow:hidden;
+  background:linear-gradient(145deg,#c8a07a 0%,#a07848 40%,#7a5830 70%,#5a3a18 100%);
 }
+.hero-banner::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none;}
 
-.hero-banner img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center 30%;
-  display:block;
-}
+/* Textura decorativa sobre el banner */
+.banner-deco{position:absolute;inset:0;opacity:0.12;}
 
-/* Overlay multi-capa para garantizar legibilidad sin importar qué tan clara sea la foto */
-.hero-banner-overlay{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(30,18,8,0.45) 0%,
-      rgba(30,18,8,0.25) 35%,
-      rgba(30,18,8,0.15) 55%,
-      rgba(30,18,8,0.55) 100%
-    );
-}
+.hero-banner-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 32px;color:#fff;}
+.banner-pre{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:rgba(255,240,210,0.85);margin-bottom:18px;font-weight:300;}
+.banner-names{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:66px;line-height:1.0;color:#fff;letter-spacing:2px;text-shadow:0 2px 12px rgba(0,0,0,0.3);}
+.banner-names .amp{display:block;font-style:italic;font-size:42px;color:rgba(255,220,160,0.95);letter-spacing:4px;margin:8px 0;}
+.banner-date{margin-top:20px;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,220,160,0.9);font-weight:300;}
 
-/* Texto encima del banner */
-.hero-banner-text{
-  position:absolute;
-  inset:0;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  text-align:center;
-  padding:0 32px;
-  color:#fff;
-}
+/* Floral */
+.floral-top{width:100%;display:flex;justify-content:center;padding:10px 0 0;animation:fadeDown 1.2s ease both;}
 
-.banner-pre{
-  font-size:9px;letter-spacing:6px;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.82);
-  margin-bottom:18px;font-weight:300;
-  text-shadow:0 1px 8px rgba(0,0,0,0.4);
-}
-
-.banner-names{
-  font-family:'Cormorant Garamond',serif;
-  font-weight:300;font-size:66px;line-height:1.0;
-  color:#fff;letter-spacing:2px;
-  text-shadow:0 2px 20px rgba(0,0,0,0.5), 0 1px 4px rgba(0,0,0,0.3);
-}
-.banner-names .amp{
-  display:block;font-style:italic;
-  font-size:42px;
-  color:rgba(255,220,170,0.95);
-  letter-spacing:4px;margin:8px 0;
-  text-shadow:0 2px 16px rgba(0,0,0,0.4);
-}
-
-.banner-date{
-  margin-top:20px;
-  font-size:10px;letter-spacing:5px;
-  text-transform:uppercase;
-  color:rgba(255,220,170,0.9);
-  text-shadow:0 1px 8px rgba(0,0,0,0.4);
-  font-weight:300;
-}
-
-/* Gradiente al pie del banner para transición suave */
-.hero-banner::after{
-  content:'';
-  position:absolute;
-  bottom:0;left:0;right:0;height:80px;
-  background:linear-gradient(to bottom, transparent, var(--bg));
-  pointer-events:none;
-}
-
-/* ── Floral decorativo ── */
-.floral-top{
-  width:100%;display:flex;justify-content:center;
-  padding:10px 0 0;
-  animation:fadeDown 1.2s ease both;
-}
-
-/* ── Hero (tagline bajo el banner) ── */
-.hero{
-  width:100%;text-align:center;
-  padding:12px 32px 28px;
-  animation:fadeDown 1.2s ease both;
-}
+/* Hero tagline */
+.hero{width:100%;text-align:center;padding:12px 32px 28px;animation:fadeDown 1.2s ease both;}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 
-.divider{
-  display:flex;align-items:center;gap:14px;
-  margin:18px auto;width:75%;
-}
+.divider{display:flex;align-items:center;gap:14px;margin:18px auto;width:75%;}
 .divider-line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);}
-.divider-diamond{
-  width:7px;height:7px;
-  background:var(--accent2);
-  transform:rotate(45deg);flex-shrink:0;
-}
-.tagline{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-size:16px;
-  color:var(--text-soft);letter-spacing:.5px;line-height:2;
-}
+.divider-diamond{width:7px;height:7px;background:var(--accent2);transform:rotate(45deg);flex-shrink:0;}
+.tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--text-soft);letter-spacing:.5px;line-height:2;}
 
-/* ── Countdown ── */
-.countdown-wrap{
-  width:calc(100% - 48px);
-  background:var(--card-bg);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:26px 20px;
-  margin:0 24px 20px;
-  text-align:center;
-  backdrop-filter:blur(10px);
-  box-shadow:0 4px 28px var(--shadow);
-  animation:fadeUp 1.4s ease both;
-}
-.countdown-label{
-  font-size:9px;letter-spacing:4px;
-  color:var(--text-mute);text-transform:uppercase;margin-bottom:18px;
-}
+/* Countdown */
+.countdown-wrap{width:calc(100% - 48px);background:var(--card-bg);border:1px solid var(--border);border-radius:18px;padding:26px 20px;margin:0 24px 20px;text-align:center;backdrop-filter:blur(10px);box-shadow:0 4px 28px var(--shadow);animation:fadeUp 1.4s ease both;}
+.countdown-label{font-size:9px;letter-spacing:4px;color:var(--text-mute);text-transform:uppercase;margin-bottom:18px;}
 .countdown-digits{display:flex;justify-content:center;gap:10px;}
 .cd-block{display:flex;flex-direction:column;align-items:center;min-width:54px;}
-.cd-num{
-  font-family:'Cormorant Garamond',serif;
-  font-size:44px;font-weight:300;
-  color:var(--accent);line-height:1;
-}
+.cd-num{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--accent);line-height:1;}
 .cd-unit{font-size:8px;letter-spacing:2px;color:var(--text-mute);text-transform:uppercase;margin-top:5px;}
-.cd-sep{
-  font-family:'Cormorant Garamond',serif;
-  font-size:30px;color:var(--border);
-  line-height:1.1;align-self:flex-start;margin-top:8px;
-}
+.cd-sep{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--border);line-height:1.1;align-self:flex-start;margin-top:8px;}
 
-/* ── Detail cards ── */
-.details{
-  width:calc(100% - 48px);margin:0 24px;
-  display:flex;flex-direction:column;gap:14px;
-  animation:fadeUp 1.6s ease both;
-}
-.detail-card{
-  background:var(--card-bg);
-  border:1px solid var(--border);
-  border-radius:14px;padding:18px 22px;
-  display:flex;align-items:flex-start;gap:16px;
-  backdrop-filter:blur(6px);
-  box-shadow:0 2px 16px var(--shadow);
-  transition:transform .2s,box-shadow .2s;
-}
+/* Cards */
+.details{width:calc(100% - 48px);margin:0 24px;display:flex;flex-direction:column;gap:14px;animation:fadeUp 1.6s ease both;}
+.detail-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:18px 22px;display:flex;align-items:flex-start;gap:16px;backdrop-filter:blur(6px);box-shadow:0 2px 16px var(--shadow);transition:transform .2s,box-shadow .2s;}
 .detail-card:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(100,60,20,0.13);}
-.detail-icon{
-  width:36px;height:36px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(176,112,66,0.10);
-  border-radius:10px;
-}
+.detail-icon{width:36px;height:36px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(176,112,66,0.10);border-radius:10px;}
 .detail-icon svg{stroke:var(--accent);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;}
 .detail-tag{font-size:8px;letter-spacing:3px;color:var(--text-mute);text-transform:uppercase;margin-bottom:5px;}
 .detail-main{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;color:var(--text);letter-spacing:.3px;}
 .detail-sub{font-size:11px;color:var(--text-soft);margin-top:3px;letter-spacing:.3px;}
 
-/* ── Foto secundaria (medio) ── */
-.mid-photo{
-  width:calc(100% - 48px);
-  margin:20px 24px 0;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid var(--border);
-  box-shadow:0 4px 24px var(--shadow);
-  position:relative;
-  height:220px;
-  animation:fadeUp 1.65s ease both;
-}
-.mid-photo img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center 25%;
-}
-.mid-photo-caption{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:16px 20px 14px;
-  background:linear-gradient(to top, rgba(20,10,5,0.65) 0%, transparent 100%);
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-size:14px;
-  color:rgba(255,220,170,0.9);
-  text-align:center;
-  letter-spacing:.5px;
-}
-
-/* ── Mapa ── */
-.map-section{
-  width:calc(100% - 48px);margin:20px 24px 0;
-  animation:fadeUp 1.7s ease both;
-}
+/* Mapa */
+.map-section{width:calc(100% - 48px);margin:20px 24px 0;animation:fadeUp 1.7s ease both;}
 .map-label{font-size:9px;letter-spacing:4px;color:var(--text-mute);text-transform:uppercase;margin-bottom:12px;text-align:center;}
-.map-frame{
-  width:100%;height:220px;
-  border-radius:14px;
-  border:1px solid var(--border);
-  overflow:hidden;
-  box-shadow:0 2px 16px var(--shadow);
-}
+.map-frame{width:100%;height:220px;border-radius:14px;border:1px solid var(--border);overflow:hidden;box-shadow:0 2px 16px var(--shadow);}
 .map-frame iframe{width:100%;height:100%;border:none;}
-.map-btn{
-  display:block;width:100%;margin-top:10px;padding:14px;
-  background:var(--accent);
-  border-radius:11px;
-  color:#fff;
-  font-family:'Jost',sans-serif;font-size:10px;
-  letter-spacing:2px;text-transform:uppercase;
-  text-align:center;cursor:pointer;text-decoration:none;
-  font-weight:500;
-  transition:all .3s;
-  box-shadow:0 4px 18px rgba(176,112,66,0.35);
-}
+.map-btn{display:block;width:100%;margin-top:10px;padding:14px;background:var(--accent);border-radius:11px;color:#fff;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;text-align:center;cursor:pointer;text-decoration:none;font-weight:500;transition:all .3s;box-shadow:0 4px 18px rgba(176,112,66,0.35);}
 .map-btn:hover{background:var(--gold);box-shadow:0 6px 22px rgba(176,112,66,0.45);}
 
-/* ── Música ── */
-.music-section{
-  width:calc(100% - 48px);margin:20px 24px 0;
-  animation:fadeUp 1.8s ease both;
-}
+/* Música */
+.music-section{width:calc(100% - 48px);margin:20px 24px 0;animation:fadeUp 1.8s ease both;}
 .music-label{font-size:9px;letter-spacing:4px;color:var(--text-mute);text-transform:uppercase;margin-bottom:12px;text-align:center;}
-.spotify-wrap{
-  background:var(--card-bg);
-  border:1px solid var(--border);
-  border-radius:14px;overflow:hidden;
-  box-shadow:0 2px 16px var(--shadow);
-}
+.spotify-wrap{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 2px 16px var(--shadow);}
 .spotify-wrap iframe{display:block;width:100%;border:none;}
 
-/* ── Regalos ── */
-.gifts-section{
-  width:calc(100% - 48px);margin:20px 24px 0;
-  text-align:center;
-  animation:fadeUp 1.85s ease both;
-}
+/* Regalos */
+.gifts-section{width:calc(100% - 48px);margin:20px 24px 0;text-align:center;animation:fadeUp 1.85s ease both;}
 .gifts-label{font-size:9px;letter-spacing:4px;color:var(--text-mute);text-transform:uppercase;margin-bottom:8px;}
-.gifts-intro{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-size:15px;
-  color:var(--text-soft);line-height:1.9;margin-bottom:18px;
-}
-.gift-card{
-  background:var(--card-bg);
-  border:1px solid var(--border);
-  border-radius:14px;padding:20px 22px;
-  backdrop-filter:blur(6px);
-  box-shadow:0 2px 16px var(--shadow);
-  display:flex;flex-direction:column;align-items:center;
-}
+.gifts-intro{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--text-soft);line-height:1.9;margin-bottom:18px;}
+.gift-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:20px 22px;backdrop-filter:blur(6px);box-shadow:0 2px 16px var(--shadow);display:flex;flex-direction:column;align-items:center;}
 .gift-tag{font-size:8px;letter-spacing:3px;color:var(--text-mute);text-transform:uppercase;margin-bottom:6px;}
 .gift-main{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--text);margin-bottom:4px;}
-.gift-num{
-  font-family:'Cormorant Garamond',serif;
-  font-size:34px;font-weight:300;
-  color:var(--accent);letter-spacing:4px;margin:6px 0 14px;
-}
-.gift-btn{
-  display:inline-block;padding:11px 24px;
-  background:var(--accent);
-  border-radius:10px;color:#fff;
-  font-family:'Jost',sans-serif;font-size:10px;
-  letter-spacing:2px;text-transform:uppercase;
-  text-decoration:none;font-weight:500;
-  transition:all .3s;
-  box-shadow:0 4px 16px rgba(176,112,66,0.32);
-}
-.gift-btn:hover{background:var(--gold);box-shadow:0 6px 20px rgba(176,112,66,0.42);}
+.gift-num{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--accent);letter-spacing:4px;margin:6px 0 14px;}
+.gift-btn{display:inline-block;padding:11px 24px;background:var(--accent);border-radius:10px;color:#fff;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:500;transition:all .3s;box-shadow:0 4px 16px rgba(176,112,66,0.32);}
+.gift-btn:hover{background:var(--gold);}
 
-/* ── RSVP ── */
-.rsvp-section{
-  width:calc(100% - 48px);margin:20px 24px 0;
-  text-align:center;
-  animation:fadeUp 1.9s ease both;
-}
+/* RSVP */
+.rsvp-section{width:calc(100% - 48px);margin:20px 24px 0;text-align:center;animation:fadeUp 1.9s ease both;}
 .rsvp-title{font-size:9px;letter-spacing:4px;color:var(--text-mute);text-transform:uppercase;margin-bottom:6px;}
-.rsvp-sub{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-size:18px;
-  color:var(--text-soft);margin-bottom:20px;
-}
+.rsvp-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--text-soft);margin-bottom:20px;}
 .rsvp-btns{display:flex;gap:12px;}
-.btn{
-  flex:1;padding:15px 0;
-  border-radius:12px;
-  font-family:'Jost',sans-serif;font-size:10px;
-  letter-spacing:2px;text-transform:uppercase;
-  cursor:pointer;transition:all .3s;border:none;
-  font-weight:500;
-}
-.btn-yes{
-  background:var(--accent);color:#fff;
-  box-shadow:0 4px 18px rgba(176,112,66,0.35);
-  text-decoration:none;display:flex;align-items:center;justify-content:center;
-}
-.btn-yes:hover{background:var(--gold);transform:translateY(-1px);box-shadow:0 6px 22px rgba(176,112,66,0.45);}
-.btn-no{
-  background:transparent;color:var(--text-soft);
-  border:1px solid var(--border)!important;
-}
+.btn{flex:1;padding:15px 0;border-radius:12px;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s;border:none;font-weight:500;}
+.btn-yes{background:var(--accent);color:#fff;box-shadow:0 4px 18px rgba(176,112,66,0.35);text-decoration:none;display:flex;align-items:center;justify-content:center;}
+.btn-yes:hover{background:var(--gold);transform:translateY(-1px);}
+.btn-no{background:transparent;color:var(--text-soft);border:1px solid var(--border)!important;}
 .btn-no:hover{color:var(--accent);border-color:var(--accent)!important;}
-.confirm-msg{
-  margin-top:16px;
-  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;
-  color:var(--accent);opacity:0;transition:opacity .5s;min-height:24px;
-}
+.confirm-msg{margin-top:16px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--accent);opacity:0;transition:opacity .5s;min-height:24px;}
 .confirm-msg.show{opacity:1;}
 
-/* ── Closing ── */
+/* Closing */
 .closing{margin-top:52px;text-align:center;}
-.closing-text{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-size:14px;
-  color:var(--text-mute);letter-spacing:2px;
-}
+.closing-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--text-mute);letter-spacing:2px;}
 .closing-hearts{font-size:18px;margin-top:8px;color:var(--accent);opacity:.65;}
 </style>
 </head>
@@ -405,39 +133,30 @@ body::before{
 
 <div class="page">
 
-  <!-- ── Monograma ── -->
+  <!-- Monograma -->
   <div class="monogram-wrap">
     <svg viewBox="0 0 400 460" width="340" height="391" xmlns="http://www.w3.org/2000/svg">
-
-      <!-- Fondo crema suave -->
       <rect width="400" height="460" fill="#faf6f1" rx="4"/>
-
-      <!-- Marco — esquinas -->
       <path d="M 48 48 L 48 32 L 64 32" fill="none" stroke="#b8966a" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
       <path d="M 48 48 L 32 48 L 32 64" fill="none" stroke="#b8966a" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
       <circle cx="48" cy="48" r="2.2" fill="#b8966a" opacity="0.55"/>
       <path d="M 56 40 Q 62 36 68 40 Q 62 44 56 40Z" fill="#b8966a" opacity="0.3"/>
       <path d="M 40 56 Q 36 62 40 68 Q 44 62 40 56Z" fill="#b8966a" opacity="0.3"/>
-
       <path d="M 352 48 L 352 32 L 336 32" fill="none" stroke="#b8966a" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
       <path d="M 352 48 L 368 48 L 368 64" fill="none" stroke="#b8966a" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
       <circle cx="352" cy="48" r="2.2" fill="#b8966a" opacity="0.55"/>
       <path d="M 344 40 Q 338 36 332 40 Q 338 44 344 40Z" fill="#b8966a" opacity="0.3"/>
       <path d="M 360 56 Q 364 62 360 68 Q 356 62 360 56Z" fill="#b8966a" opacity="0.3"/>
-
       <path d="M 48 412 L 48 428 L 64 428" fill="none" stroke="#b8966a" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
       <path d="M 48 412 L 32 412 L 32 396" fill="none" stroke="#b8966a" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
       <circle cx="48" cy="412" r="2.2" fill="#b8966a" opacity="0.55"/>
       <path d="M 56 420 Q 62 424 68 420 Q 62 416 56 420Z" fill="#b8966a" opacity="0.3"/>
       <path d="M 40 404 Q 36 398 40 392 Q 44 398 40 404Z" fill="#b8966a" opacity="0.3"/>
-
       <path d="M 352 412 L 352 428 L 336 428" fill="none" stroke="#b8966a" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
       <path d="M 352 412 L 368 412 L 368 396" fill="none" stroke="#b8966a" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
       <circle cx="352" cy="412" r="2.2" fill="#b8966a" opacity="0.55"/>
       <path d="M 344 420 Q 338 424 332 420 Q 338 416 344 420Z" fill="#b8966a" opacity="0.3"/>
       <path d="M 360 404 Q 364 398 360 392 Q 356 398 360 404Z" fill="#b8966a" opacity="0.3"/>
-
-      <!-- Líneas del marco -->
       <line x1="32" y1="72" x2="32" y2="185" stroke="#b8966a" stroke-width="0.7" opacity="0.35"/>
       <line x1="32" y1="275" x2="32" y2="388" stroke="#b8966a" stroke-width="0.7" opacity="0.35"/>
       <line x1="368" y1="72" x2="368" y2="185" stroke="#b8966a" stroke-width="0.7" opacity="0.35"/>
@@ -446,53 +165,33 @@ body::before{
       <line x1="225" y1="32" x2="328" y2="32" stroke="#b8966a" stroke-width="0.7" opacity="0.35"/>
       <line x1="72" y1="428" x2="175" y2="428" stroke="#b8966a" stroke-width="0.7" opacity="0.35"/>
       <line x1="225" y1="428" x2="328" y2="428" stroke="#b8966a" stroke-width="0.7" opacity="0.35"/>
-
-      <!-- Diamantes en lados -->
       <polygon points="200,28 204,32 200,36 196,32" fill="#b8966a" opacity="0.55"/>
       <polygon points="200,424 204,428 200,432 196,428" fill="#b8966a" opacity="0.55"/>
       <polygon points="28,200 32,204 36,200 32,196" fill="#b8966a" opacity="0.55"/>
       <polygon points="364,200 368,204 372,200 368,196" fill="#b8966a" opacity="0.55"/>
-
-      <!-- Separador superior -->
       <path d="M 110 102 Q 200 96 290 102" stroke="#b8966a" stroke-width="0.7" fill="none" opacity="0.4"/>
-      <text x="200" y="92" text-anchor="middle"
-        font-family="'Jost', sans-serif" font-size="8" font-weight="200"
-        fill="#9a7858" letter-spacing="7" opacity="0.85">NOS CASAMOS</text>
-
-      <!-- Iniciales — Alex Brush -->
-      <text x="132" y="278" text-anchor="middle"
-        font-family="'Alex Brush', cursive"
-        font-size="200" fill="#261610" opacity="0.87">D</text>
-      <text x="272" y="278" text-anchor="middle"
-        font-family="'Alex Brush', cursive"
-        font-size="200" fill="#261610" opacity="0.87">I</text>
-
-      <!-- & grande y visible -->
-      <text x="200" y="222" text-anchor="middle"
-        font-family="'Cormorant Garamond', Georgia, serif"
-        font-size="52" font-style="italic" font-weight="300"
-        fill="#a07840" opacity="0.92">&amp;</text>
-
-      <!-- Trazo bajo letras -->
-      <path d="M 92 305 Q 146 318 200 314 Q 254 310 312 322"
-        stroke="#b8966a" stroke-width="1" fill="none" opacity="0.45" stroke-linecap="round"/>
-
-      <!-- Separador y fecha -->
+      <text x="200" y="92" text-anchor="middle" font-family="'Jost', sans-serif" font-size="8" font-weight="200" fill="#9a7858" letter-spacing="7" opacity="0.85">NOS CASAMOS</text>
+      <text x="132" y="278" text-anchor="middle" font-family="'Alex Brush', cursive" font-size="200" fill="#261610" opacity="0.87">D</text>
+      <text x="272" y="278" text-anchor="middle" font-family="'Alex Brush', cursive" font-size="200" fill="#261610" opacity="0.87">I</text>
+      <text x="200" y="222" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="52" font-style="italic" font-weight="300" fill="#a07840" opacity="0.92">&amp;</text>
+      <path d="M 92 305 Q 146 318 200 314 Q 254 310 312 322" stroke="#b8966a" stroke-width="1" fill="none" opacity="0.45" stroke-linecap="round"/>
       <path d="M 120 352 Q 200 346 280 352" stroke="#b8966a" stroke-width="0.7" fill="none" opacity="0.4"/>
-      <text x="200" y="372" text-anchor="middle"
-        font-family="'Jost', sans-serif" font-size="8" font-weight="200"
-        fill="#9a7858" letter-spacing="6" opacity="0.8">31 · MAYO · 2026</text>
-
+      <text x="200" y="372" text-anchor="middle" font-family="'Jost', sans-serif" font-size="8" font-weight="200" fill="#9a7858" letter-spacing="6" opacity="0.8">31 · MAYO · 2026</text>
       <circle cx="186" cy="386" r="1.2" fill="#b8966a" opacity="0.4"/>
       <circle cx="200" cy="386" r="1.2" fill="#b8966a" opacity="0.4"/>
       <circle cx="214" cy="386" r="1.2" fill="#b8966a" opacity="0.4"/>
-
     </svg>
   </div>
 
-  <!-- ── Banner ── -->
+  <!-- Banner sin foto -->
   <div class="hero-banner">
-    <div class="hero-banner-overlay"></div>
+    <svg class="banner-deco" viewBox="0 0 440 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="120" fill="white" opacity="0.06"/>
+      <circle cx="380" cy="240" r="100" fill="white" opacity="0.06"/>
+      <circle cx="220" cy="150" r="80" fill="white" opacity="0.04"/>
+      <line x1="0" y1="0" x2="440" y2="300" stroke="white" stroke-width="0.5" opacity="0.08"/>
+      <line x1="440" y1="0" x2="0" y2="300" stroke="white" stroke-width="0.5" opacity="0.08"/>
+    </svg>
     <div class="hero-banner-text">
       <p class="banner-pre">nos casamos</p>
       <div class="banner-names">
@@ -513,10 +212,6 @@ body::before{
       <circle cx="100" cy="14" r="1.8" fill="#fdf8f3" opacity="0.85"/>
       <circle cx="66" cy="10" r="2.8" fill="#c8955a" opacity="0.38"/>
       <circle cx="134" cy="10" r="2.8" fill="#c8955a" opacity="0.38"/>
-      <circle cx="36" cy="22" r="2" fill="#b07042" opacity="0.28"/>
-      <circle cx="164" cy="22" r="2" fill="#b07042" opacity="0.28"/>
-      <ellipse cx="88" cy="20" rx="5" ry="2.2" fill="#a0703a" opacity="0.22" transform="rotate(-30 88 20)"/>
-      <ellipse cx="112" cy="20" rx="5" ry="2.2" fill="#a0703a" opacity="0.22" transform="rotate(30 112 20)"/>
     </svg>
   </div>
 
@@ -581,24 +276,16 @@ body::before{
   <div class="map-section">
     <p class="map-label">Cómo llegar</p>
     <div class="map-frame">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737.847!2d-98.6805315!3d20.1241859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d109cd51b77109%3A0x349f56d4f5a2f036!2sRancho%20Velillo!5e0!3m2!1ses!2smx!4v1"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737.847!2d-98.6805315!3d20.1241859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d109cd51b77109%3A0x349f56d4f5a2f036!2sRancho%20Velillo!5e0!3m2!1ses!2smx!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <a class="map-btn" href="https://maps.app.goo.gl/Z6sNxRb19hNWJsr6A" target="_blank">Abrir en Google Maps →</a>
   </div>
 
-  <!-- Música Spotify -->
+  <!-- Música -->
   <div class="music-section">
     <p class="music-label">Nuestra canción</p>
     <div class="spotify-wrap">
-      <iframe
-        src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v?utm_source=generator&theme=0"
-        width="100%" height="152"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy">
-      </iframe>
+      <iframe src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v?utm_source=generator&theme=0" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
   </div>
 
@@ -606,7 +293,6 @@ body::before{
   <div class="gifts-section">
     <p class="gifts-label">Regalos</p>
     <p class="gifts-intro">Tu presencia es nuestro mejor regalo;<br>si deseas obsequiarnos algo, una lluvia de sobres será muy bienvenida.</p>
-
     <div class="gift-card">
       <div class="detail-icon" style="margin-bottom:10px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b07042" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
@@ -616,7 +302,6 @@ body::before{
       <div class="gift-num">51997647</div>
       <a class="gift-btn" href="https://www.liverpool.com.mx/tienda/mesaderegalos/search?eventNumber=51997647" target="_blank">Ver mesa de regalos →</a>
     </div>
-
     <div class="gift-card" style="margin-top:14px;">
       <div class="detail-icon" style="margin-bottom:10px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b07042" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
@@ -651,54 +336,41 @@ body::before{
 </div>
 
 <script>
-// Partículas
 const container = document.getElementById('particles');
-for(let i = 0; i < 18; i++){
-  const p = document.createElement('div');
-  p.className = 'particle';
-  p.style.left = Math.random() * 100 + '%';
-  p.style.animationDuration = (12 + Math.random() * 14) + 's';
-  p.style.animationDelay = (Math.random() * 14) + 's';
-  const size = (1.5 + Math.random() * 2) + 'px';
-  p.style.width = size; p.style.height = size;
+for(let i=0;i<18;i++){
+  const p=document.createElement('div');
+  p.className='particle';
+  p.style.left=Math.random()*100+'%';
+  p.style.animationDuration=(12+Math.random()*14)+'s';
+  p.style.animationDelay=(Math.random()*14)+'s';
+  const size=(1.5+Math.random()*2)+'px';
+  p.style.width=size;p.style.height=size;
   container.appendChild(p);
 }
 
-// Cuenta regresiva
 function updateCountdown(){
-  const target = new Date('2026-05-31T15:00:00-06:00');
-  const now = new Date();
-  const diff = target - now;
-  if(diff <= 0){
-    ['days','hrs','mins','secs'].forEach(id => document.getElementById(id).textContent = '00');
-    return;
-  }
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor((diff % 86400000) / 3600000);
-  const m = Math.floor((diff % 3600000) / 60000);
-  const s = Math.floor((diff % 60000) / 1000);
-  document.getElementById('days').textContent = String(d).padStart(2,'0');
-  document.getElementById('hrs').textContent  = String(h).padStart(2,'0');
-  document.getElementById('mins').textContent = String(m).padStart(2,'0');
-  document.getElementById('secs').textContent = String(s).padStart(2,'0');
+  const target=new Date('2026-05-31T15:00:00-06:00');
+  const diff=target-new Date();
+  if(diff<=0){['days','hrs','mins','secs'].forEach(id=>document.getElementById(id).textContent='00');return;}
+  document.getElementById('days').textContent=String(Math.floor(diff/86400000)).padStart(2,'0');
+  document.getElementById('hrs').textContent=String(Math.floor(diff%86400000/3600000)).padStart(2,'0');
+  document.getElementById('mins').textContent=String(Math.floor(diff%3600000/60000)).padStart(2,'0');
+  document.getElementById('secs').textContent=String(Math.floor(diff%60000/1000)).padStart(2,'0');
 }
 updateCountdown();
-setInterval(updateCountdown, 1000);
+setInterval(updateCountdown,1000);
 
-// RSVP → WhatsApp
 function rsvpYes(e){
   e.preventDefault();
-  const msg = encodeURIComponent('¡Hola! Confirmo mi asistencia a la boda de Diana & Iván el 31 de mayo 2026 🥂');
-  window.open('https://wa.me/527714031344?text=' + msg, '_blank');
-  const el = document.getElementById('confirmMsg');
-  el.textContent = '¡Qué alegría! Abriendo WhatsApp para confirmar 🎉';
+  window.open('https://wa.me/527714031344?text='+encodeURIComponent('¡Hola! Confirmo mi asistencia a la boda de Diana & Iván el 31 de mayo 2026 🥂'),'_blank');
+  const el=document.getElementById('confirmMsg');
+  el.textContent='¡Qué alegría! Abriendo WhatsApp para confirmar 🎉';
   el.classList.add('show');
 }
 function rsvpNo(){
-  const msg = encodeURIComponent('Hola, lamentablemente no podré acompañarlos en su boda el 31 de mayo 2026. Los felicito con mucho cariño 💐');
-  window.open('https://wa.me/527714031344?text=' + msg, '_blank');
-  const el = document.getElementById('confirmMsg');
-  el.textContent = 'Gracias por avisar, los recordaremos con cariño.';
+  window.open('https://wa.me/527714031344?text='+encodeURIComponent('Hola, lamentablemente no podré acompañarlos en su boda el 31 de mayo 2026. Los felicito con mucho cariño 💐'),'_blank');
+  const el=document.getElementById('confirmMsg');
+  el.textContent='Gracias por avisar, los recordaremos con cariño.';
   el.classList.add('show');
 }
 </script>
